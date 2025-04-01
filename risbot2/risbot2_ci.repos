@@ -1,0 +1,5 @@
+repositories:
+  .../...:
+    type: git
+    url: 
+    version: humble-devel

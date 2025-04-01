@@ -1,0 +1,27 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/tht/risbot2_ws/install/risbot2_fake_node/include/**",
+        "/home/tht/risbot2_ws/install/risbot2_msgs/include/**",
+        "/home/tht/risbot2_ws/install/risbot2_gazebo/include/**",
+        "/opt/ros/humble/include/**",
+        "/home/tht/risbot2_ws/src/risbot2/risbot2_node/include/**",
+        "/home/tht/risbot2_ws/src/risbot2/risbot2_simulations/risbot2_fake_node/include/**",
+        "/home/tht/risbot2_ws/src/risbot2/risbot2_simulations/risbot2_gazebo/include/**",
+        "/home/tht/risbot2_ws/src/risbot2/risbot2_tools/urg_node2/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

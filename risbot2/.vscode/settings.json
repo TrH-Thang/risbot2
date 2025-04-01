@@ -1,0 +1,17 @@
+{
+    "ros.distro": "humble",
+    "python.autoComplete.extraPaths": [
+        "/home/tht/risbot2_ws/install/risbot2_teleop/lib/python3.10/site-packages",
+        "/home/tht/risbot2_ws/install/risbot2_example/lib/python3.10/site-packages",
+        "/home/tht/risbot2_ws/install/risbot2_msgs/local/lib/python3.10/dist-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/tht/risbot2_ws/install/risbot2_teleop/lib/python3.10/site-packages",
+        "/home/tht/risbot2_ws/install/risbot2_example/lib/python3.10/site-packages",
+        "/home/tht/risbot2_ws/install/risbot2_msgs/local/lib/python3.10/dist-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
+}
