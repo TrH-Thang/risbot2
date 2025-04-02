@@ -1,5 +1,9 @@
 repositories:
-  risbot2/risbot2:
+  risbot2:
     type: git
-    url: 
+    url: https://github.com/TrH-Thang/risbot2.git
+    version: ros2-devel
+  risbot2/risbot2_tools/robotlocalization:
+    type: git
+    url: https://github.com/cra-ros-pkg/robot_localization.git
     version: ros2-devel
