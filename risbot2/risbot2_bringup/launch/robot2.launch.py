@@ -27,7 +27,7 @@ def generate_launch_description():
     
     ekf_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
-            os.path.join(get_package_share_directory('robot_localization'), 'launch', 'ekf.launch.py')
+            os.path.join(get_package_share_directory('risbot2_bringup'), 'launch', 'ekf.launch.py')
         ]),
     )
    
@@ -39,13 +39,6 @@ def generate_launch_description():
     )
 
     use_sim_time = LaunchConfiguration('use_sim_time', default='false')
-
-    # Transform giữa T265 và robot
-    # t265_tf = Node(
-    #     package="tf2_ros",
-    #     executable="static_transform_publisher",
-    #     arguments=["0.45", "0", "0.9", "0", "0", "0", "base_footprint", "odom_frame"]
-    # )
 
 
     return LaunchDescription([
