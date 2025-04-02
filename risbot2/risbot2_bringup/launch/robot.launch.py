@@ -57,8 +57,6 @@ def generate_launch_description():
 
         t265_launch,
 
-        # t265_tf,
-
         Node(
             package='risbot2_node',
             executable='risbot2_node.py',
