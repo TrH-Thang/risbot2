@@ -11,9 +11,9 @@ BAUD_RATE = 115200
 
 ser = serial.Serial(SERIAL_PORT, BAUD_RATE, timeout=1)
 
-DISTANCE_WHEEL = 0.5    # Khoảng cách giữa hai bánh xe (m)
-DIAMETER_WHEEL = 0.3    # Đường kính bánh xe (m)
-WHEEL_RADIUS = 0.150    # Bán kính bánh xe (m)
+DISTANCE_WHEEL = 0.3    # Khoảng cách giữa hai bánh xe (m)
+DIAMETER_WHEEL = 0.14    # Đường kính bánh xe (m)
+WHEEL_RADIUS = 0.07    # Bán kính bánh xe (m)
 STEP_PER_REVOLUTION = 800  # Số bước mỗi vòng quay của động cơ
 
 class CmdVelToStep(Node):
@@ -33,13 +33,16 @@ class CmdVelToStep(Node):
         step_right = int(wheel_right_kinematic * STEP_PER_REVOLUTION / (2 * math.pi * WHEEL_RADIUS))
         step_left = int(wheel_left_kinematic * STEP_PER_REVOLUTION / (2 * math.pi * WHEEL_RADIUS))
 
-        send_data = f"{step_right},{step_left}\n"
+        step_right_setup = int(step_right/5)
+        step_left_setup = int(step_left/5)
+
+        send_data = f"{step_right_setup},{step_left_setup}\n"
         ser.write(send_data.encode('utf-8'))
 
     def receive_step_feedback(self):
         if ser.in_waiting:
             feedback = ser.readline().decode('utf-8').strip()
-            self.get_logger().info(f"Received feedback: {feedback}")
+            # self.get_logger().info(f"Received feedback: {feedback}")
 
 def main(args=None):
     rclpy.init(args=args)
