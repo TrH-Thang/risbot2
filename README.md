@@ -5,7 +5,7 @@
 - risbot2 folder: program for RISBOT2'PC
 - risbot2_micro_controller folder: program for micro controller
 - risbot2_tools folder: dependent for RISBOT2
-- docs folder: document for RISBOT2
+- risbot2_docs folder: document for RISBOT2
 
 ## Hardware
 - Jetson Orin NX 16G
