@@ -1,12 +1,11 @@
 # RISBOT2
+![image](https://github.com/user-attachments/assets/a6be4376-f133-4ab6-86f0-056b13f34615)
 
 ## Overview
 - risbot2 folder: program for RISBOT2'PC
 - risbot2_micro_controller folder: program for micro controller
 - risbot2_tools folder: dependent for RISBOT2
 - docs folder: document for RISBOT2
-![image](https://github.com/user-attachments/assets/a6be4376-f133-4ab6-86f0-056b13f34615)
-
 
 ## Hardware
 - Jetson Orin NX 16G
@@ -54,54 +53,49 @@ Code for Arduino Uno R3: /risbot2_ws/src/risbot2/risbot2_micro_controller/risbot
 ## Launch
 
 ### 1. Bringup RISBOT2
+
 Open a terminal and run following command:
 ```bash
 ros2 launch risbot2_bringup robot.launch.py
 ```
+
 or:
 ```bash
 ros2 launch risbot2_bringup robot2.launch.py
 ```
 ### 2. SLAM RISBOT2
-- SLAM with a t265:
-  Open a terminal and run following command:
+
++ SLAM with a t265:
 ```bash
 ros2 launch risbot2_bringup robot.launch.py
-```
-  Open a new terminal and run following command:
-```bash
+# Open a new terminal and run following command:
 ros2 launch risbot2_cartographer cartographer.launch.py
 ```
-- SLAM with 2 T265s:
-  Open a terminal and run following command:
+
++ SLAM with 2 T265s:
 ```bash
 ros2 launch risbot2_bringup robot2.launch.py
-```
-  Open a new terminal and run following command:
-```bash
+# Open a new terminal and run following command:
 ros2 launch risbot2_cartographer cartographer2.launch.py
 ```
-- Open a new terminal and run following command to controll RISBOT2:
+
++ Open a new terminal and run following command to controll RISBOT2:
 ```bash
 ros2 run risbot2_teleop teleop_keyboard
 ```
 
 ### 3. Navigation RISBOT2
+
 - Navigation with a t265:
-  Open a terminal and run following command:
 ```bash
 ros2 launch risbot2_bringup robot.launch.py
-```
-  Open a new terminal and run following command:
-```bash
+# Open a new terminal and run following command:
 ros2 launch risbot2_navigation2 navigation2.launch.py map:=/path/to/map.yaml
 ```
+
 - Navigation with 2 t265s:
-  Open a terminal and run following command:
 ```bash
 ros2 launch risbot2_bringup robot2.launch.py
-```
-  Open a new terminal and run following command:
-```bash
+# Open a new terminal and run following command:
 ros2 launch risbot2_navigation2 navigation2.launch.py map:=/path/to/map.yaml
 ```
