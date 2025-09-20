@@ -14,6 +14,7 @@
 - Hokuyo Lidar UST-20LX
 - Realsense T265 (x2)
 - ZED 2 Stereo Camera
+- Livox MID-360
 - 7inch screen
 - Arduino Uno R3
 - Stepping Motor (x2)
