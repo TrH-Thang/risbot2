@@ -3,8 +3,8 @@ urg_node2:
     ip_address: '192.168.44.10'
     ip_port: 10940
     frame_id : 'laser'
-    calibrate_time : false
-    synchronize_time : false
+    calibrate_time : true
+    synchronize_time : true
     publish_intensity : false
     publish_multiecho : false
     error_limit : 4
@@ -14,5 +14,5 @@ urg_node2:
     time_offset : 0.0
     angle_min : -3.14
     angle_max : 3.14
-    skip : 0
+    skip : 3
     cluster : 1
