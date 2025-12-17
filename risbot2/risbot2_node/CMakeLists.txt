@@ -16,6 +16,7 @@ find_package(geometry_msgs REQUIRED)
 install(
     PROGRAMS
     scripts/risbot2_node.py
+    scripts/t265_odom_node.py
     DESTINATION lib/${PROJECT_NAME}
 )
 

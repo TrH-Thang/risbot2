@@ -25,13 +25,6 @@ install(
   DESTINATION share/${PROJECT_NAME}
 )
 
-install(
-  PROGRAMS
-    script/t265_odom_node.py
-    script/t265_odom_relay.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-
 ################################################################################
 # Macro for ament package
 ################################################################################

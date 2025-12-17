@@ -61,4 +61,10 @@ def generate_launch_description():
             package='risbot2_node',
             executable='risbot2_node.py',
             output='screen'),
+
+        Node(
+            package='risbot2_node',
+            executable='t265_odom_node.py',
+            name='t265_odom_node',
+            output='screen') ,
     ])
