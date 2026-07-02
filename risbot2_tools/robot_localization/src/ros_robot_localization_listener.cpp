@@ -70,9 +70,23 @@ RosRobotLocalizationListener::RosRobotLocalizationListener(
   rclcpp::SubscriptionOptions options)
 : qos1_(1),
   qos10_(10),
-  odom_sub_(node, "odom/filtered", qos1_, options),
-  accel_sub_(node, "acceleration/filtered", qos1_, options),
-  sync_(10u, odom_sub_, accel_sub_),
+
+  // ROS2 Humble message_filters API
+  odom_sub_(
+    node,
+    "odom/filtered",
+    rmw_qos_profile_default,
+    options),
+
+  accel_sub_(
+    node,
+    "acceleration/filtered",
+    rmw_qos_profile_default,
+    options),
+
+  // ROS2 Humble TimeSynchronizer API
+  sync_(odom_sub_, accel_sub_, 10),
+
   node_clock_(node->get_node_clock_interface()->get_clock()),
   node_logger_(node->get_node_logging_interface()),
   base_frame_id_(""),
