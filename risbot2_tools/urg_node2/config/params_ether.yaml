@@ -14,5 +14,5 @@ urg_node2:
     time_offset : 0.0
     angle_min : -3.14
     angle_max : 3.14
-    skip : 3
+    skip : 0
     cluster : 1
