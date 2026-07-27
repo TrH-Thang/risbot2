@@ -100,6 +100,7 @@ def generate_launch_description():
             executable='static_transform_publisher',
             name='static_tf_pub_base_link_to_zed',
             output='screen',
+            # arguments=['0.0', '0.0', '0.2', '3.14159265', '0.0', '0.0', 'base_link', 'zed_camera_link']
             arguments=['0.0', '0.0', '0.2', '0.0', '0.0', '0.0', 'base_link', 'zed_camera_link']
         ),
 
