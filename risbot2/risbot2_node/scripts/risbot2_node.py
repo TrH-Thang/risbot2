@@ -22,21 +22,33 @@ class CmdVelToStep(Node):
         self.subscription = self.create_subscription(
             Twist, 'cmd_vel', self.cmd_vel_callback, 10)
         self.serial_subscription = self.create_timer(0.1, self.receive_step_feedback)
+        self.last_time = self.get_clock().now()
 
     def cmd_vel_callback(self, msg):
+        current_time = self.get_clock().now()
+        dt = (current_time - self.last_time).nanoseconds / 1e9
+        self.last_time = current_time
+
+        # Giới hạn dt nếu là tin nhắn đầu tiên hoặc bị trễ quá lâu
+        if dt <= 0 or dt > 0.5:
+            dt = 0.1
+
         linear_velocity = msg.linear.x
         angular_velocity = msg.angular.z
 
-        wheel_right_kinematic = (linear_velocity + angular_velocity * (DISTANCE_WHEEL / 2)) / (DIAMETER_WHEEL / 2)
-        wheel_left_kinematic = (linear_velocity - angular_velocity * (DISTANCE_WHEEL / 2)) / (DIAMETER_WHEEL / 2)
+        # 1. Tính vận tốc dài từng bánh xe (m/s)
+        v_right = linear_velocity + angular_velocity * (DISTANCE_WHEEL / 2.0)
+        v_left  = linear_velocity - angular_velocity * (DISTANCE_WHEEL / 2.0)
 
-        step_right = int(wheel_right_kinematic * STEP_PER_REVOLUTION / (2 * math.pi * WHEEL_RADIUS))
-        step_left = int(wheel_left_kinematic * STEP_PER_REVOLUTION / (2 * math.pi * WHEEL_RADIUS))
+        # 2. Vận tốc bước (bước/giây)
+        steps_per_sec_right = (v_right / (2 * math.pi * WHEEL_RADIUS)) * STEP_PER_REVOLUTION
+        steps_per_sec_left  = (v_left  / (2 * math.pi * WHEEL_RADIUS)) * STEP_PER_REVOLUTION
 
-        step_right_setup = int(step_right/5)
-        step_left_setup = int(step_left/5)
+        # 3. Tính số bước tương đối cần đi trong khoảng dt (khớp với moveTo của Arduino)
+        step_right = int(steps_per_sec_right * dt)
+        step_left  = int(steps_per_sec_left * dt)
 
-        send_data = f"{step_right_setup},{step_left_setup}\n"
+        send_data = f"{step_right},{step_left}\n"
         ser.write(send_data.encode('utf-8'))
 
     def receive_step_feedback(self):
